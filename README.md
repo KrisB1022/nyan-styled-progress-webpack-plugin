@@ -1,6 +1,6 @@
-# nyan-progress-webpack-plugin
+# nyan-styled-progress-webpack-plugin
 
-Meow (forked from [Alexkuz](https://github.com/alexkuz/nyan-progress-webpack-plugin))
+###### _Meow (forked from [Alexkuz](https://github.com/alexkuz/nyan-progress-webpack-plugin))_
 
 <img src="Nyan Building.png" width="500px" />
 <br/>
@@ -10,40 +10,33 @@ Meow (forked from [Alexkuz](https://github.com/alexkuz/nyan-progress-webpack-plu
 ## Install
 
 ```
-$ npm i -D nyan-progress-webpack-plugin
-$ yarn add nyan-progress-wegpack-plugin --save
+$ npm i -D nyan-styled-progress-webpack-plugin
+
+$ yarn add nyan-styled-progress-wegpack-plugin --dev
 ```
 
 ## Usage
 
-Add this to your webpack plugin:
+```javascript
+// weback.config.js
+const webpack = require("webpack");
+const NyanProgressPlugin = require("nyan-progress-webpack-plugin");
 
-```
-const NyanProgressPlugin = require('nyan-progress-webpack-plugin');
-
-...
-
-plugins: [
-  new NyanProgressPlugin()
-]
-
-...
+module.exports = {
+  plugins: [new NyanProgressPlugin(options)],
+};
 ```
 
-**NB**: use `webpack.ProgressPlugin` carefully with this plugin. If you used it just for progress logging, you can remove it.
+###### This plugin uses [webpack progress-plugin](https://webpack.js.org/plugins/progress-plugin/) under the hood.
 
 ## Options
 
-```
-new NyanProgressPlugin(options)
-```
-
-| Name                  | Signature                              | Default Value               | Description                                                                                                                                   |
-| --------------------- | -------------------------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| logger                | `function(message, ...)`               | `console.log`               | Function used for logging                                                                                                                     |
-| width                 | `Number`                               | `process.stdout.columns`    | Set max-width of nyan cat and rainbow                                                                                                         |
-| hookStdout            | Boolean                                | `true`                      | If `true`, patches `process.stdout.write` during progress and counts extraneous log messages, to position Nyan Cat properly                   |
-| getProgressMessage    | `function(progress, messages, styles)` | `...`                       | Gets custom progress message. `styles` is provided for convenience (exported from [ansi-styles](https://github.com/chalk/ansi-styles) module) |
-| debounceInterval      | Number                                 | `180`                       | Defines how often `getProgressMessage` is called (in milliseconds)                                                                            |
-| nyanCatSays           | `function(progress, messages)`         | `progress === 1 && 'Nyan!'` | Override this function to define what nyan cat is saying                                                                                      |
-| restoreCursorPosition | Boolean                                | `false`                     | Enable this flag, if your terminal supports saving/restoring cursor position, for better output handling                                      |
+| Name                    | type                                   | Default                            | Description                                                                                                                                   |
+| ----------------------- | -------------------------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `logger`                | `Function`                             | console.log                        | Used for logging messages to command line                                                                                                     |
+| `width`                 | `Number`                               | process.stdout.columns             | Helps determine the width of nyan cat and rainbow                                                                                             |
+| `hookStdout`            | Boolean                                | `true`                             | If `true`, patches `process.stdout.write` during progress and counts extraneous log messages, to position Nyan Cat properly                   |
+| `getProgressMessage`    | `Function(progress, messages, styles)` | (progress, messages, styles) => {} | Gets custom progress message. `styles` is provided for convenience (exported from [ansi-styles](https://github.com/chalk/ansi-styles) module) |
+| `debounceInterval`      | `Number`                               | 180                                | Defines how often `getProgressMessage` is called (in milliseconds)                                                                            |
+| `nyanCatSays`           | `Function(progress, messages)`         | (progress, messages) => {}         | function to define what nyan cat is saying                                                                                                    |
+| `restoreCursorPosition` | `Boolean`                              | false                              | Enable this flag, if your terminal supports saving/restoring cursor position, for better output handling                                      |
