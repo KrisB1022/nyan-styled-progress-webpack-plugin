@@ -1,4 +1,4 @@
-const NyanProgressPlugin = require("../index");
+const NyanStyledProgressPlugin = require("../index");
 
 function loop(progress, onLoop) {
   const finished = onLoop(progress);
@@ -26,23 +26,23 @@ function handleTestPlugin(plugin, done) {
 
 describe("Nyan Plugin", () => {
   it("works with default options", (done) => {
-    const plugin = new NyanProgressPlugin();
+    const plugin = new NyanStyledProgressPlugin();
     handleTestPlugin(plugin, done);
   });
 
   it("works with large debounce interval", (done) => {
-    const plugin = new NyanProgressPlugin({ debounceInterval: 1000 });
+    const plugin = new NyanStyledProgressPlugin({ debounceInterval: 1000 });
     handleTestPlugin(plugin, done);
   });
 
   it("works with small debounce interval", (done) => {
-    const plugin = new NyanProgressPlugin({ debounceInterval: 50 });
+    const plugin = new NyanStyledProgressPlugin({ debounceInterval: 50 });
     handleTestPlugin(plugin, done);
   });
 
   it("works with long extraneous console output", (done) => {
     let i = 0;
-    const plugin = new NyanProgressPlugin({ debounceInterval: 50 });
+    const plugin = new NyanStyledProgressPlugin({ debounceInterval: 50 });
 
     loop(0.01, (progress) => {
       if (progress < 1) {
@@ -64,12 +64,15 @@ describe("Nyan Plugin", () => {
   });
 
   it("works with cursor position restoring", (done) => {
-    const plugin = new NyanProgressPlugin({ debounceInterval: 50, restoreCursorPosition: true });
+    const plugin = new NyanStyledProgressPlugin({
+      debounceInterval: 50,
+      restoreCursorPosition: true,
+    });
     handleTestPlugin(plugin, done);
   });
 
   it("works with custom message", (done) => {
-    const plugin = new NyanProgressPlugin({
+    const plugin = new NyanStyledProgressPlugin({
       getProgressMessage: (_progress, message) => {
         return `Nyan cat says: "${message}"`;
       },

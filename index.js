@@ -1,3 +1,3 @@
-const NyanProgressPlugin = require("./src/NyanProgressPlugin");
+const NyanStyledProgressPlugin = require("./src/NyanStyledProgressPlugin");
 
-module.exports = NyanProgressPlugin;
+module.exports = NyanStyledProgressPlugin;

@@ -23,7 +23,7 @@ const defaultOptions = {
   width: Math.abs(process.stdout.columns - 60),
 };
 
-function NyanProgressPlugin(overrideOptions) {
+function NyanStyledProgressPlugin(overrideOptions) {
   let isPrintingProgress = false;
   let isStarted = false;
   let originalStdoutWrite;
@@ -113,4 +113,4 @@ function NyanProgressPlugin(overrideOptions) {
   });
 }
 
-module.exports = NyanProgressPlugin;
+module.exports = NyanStyledProgressPlugin;

@@ -20,10 +20,10 @@ $ yarn add nyan-styled-progress-wegpack-plugin --dev
 ```javascript
 // weback.config.js
 const webpack = require("webpack");
-const NyanProgressPlugin = require("nyan-progress-webpack-plugin");
+const NyanStyledProgressPlugin = require("nyan-styled-progress-webpack-plugin");
 
 module.exports = {
-  plugins: [new NyanProgressPlugin(options)],
+  plugins: [new NyanStyledProgressPlugin(options)],
 };
 ```
 
