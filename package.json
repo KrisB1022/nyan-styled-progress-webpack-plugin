@@ -1,0 +1,39 @@
+{
+  "name": "nyan-styled-progress-webpack-plugin",
+  "version": "2.0.0",
+  "description": "Nyan Cat Styled Webpack Progress Plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test",
+    "preversion": "npm test",
+    "version": "git add -A .",
+    "postversion": "git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KrisB1022/nyan-styled-progress-webpack-plugin.git"
+  },
+  "keywords": [
+    "webpack",
+    "plugin",
+    "progress",
+    "nyan",
+    "meow"
+  ],
+  "author": "Kris <designbykrisbyrum@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KrisB1022/nyan-styled-progress-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/KrisB1022/nyan-styled-progress-webpack-plugin/blob/main/README.md",
+  "dependencies": {
+    "ansi-escapes": "^4.3.1",
+    "ansi-styles": "^5.1.0"
+  },
+  "peerDependencies": {
+    "webpack": "^5.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.2.1"
+  }
+}
