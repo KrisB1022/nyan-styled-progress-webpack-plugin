@@ -28,11 +28,10 @@
   "homepage": "https://github.com/KrisB1022/nyan-styled-progress-webpack-plugin/blob/main/README.md",
   "dependencies": {
     "ansi-escapes": "^4.3.1",
-    "ansi-styles": "^5.1.0",
-    "webpack": "^5.18.0"
+    "ansi-styles": "^5.1.0"
   },
   "peerDependencies": {
-    "webpack": "^5.0.0"
+    "webpack": ">=4.0.0"
   },
   "devDependencies": {
     "mocha": "^8.2.1"
